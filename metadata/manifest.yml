@@ -6,10 +6,11 @@ Version: '1.1'
 License: Apache
 Vendor: logstash.net
 Cartridge-Version: 0.0.1
-Cartridge-Vendor: bleanhar
+Cartridge-Vendor: brenton
 Categories:
   - service
   - web_framework
+  - domain_scope
 Provides:
   - logstash-1.1
   - logstash  
