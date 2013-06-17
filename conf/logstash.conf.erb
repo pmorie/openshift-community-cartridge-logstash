@@ -1,0 +1,6 @@
+input { 
+  tcp { host => "<%= ENV['OPENSHIFT_LOGSTASH_IP']%>" port => <%= ENV['OPENSHIFT_LOGSTASH_TCP_PORT']%> type => "tcp-type" }
+}
+output { 
+  websocket { }
+}

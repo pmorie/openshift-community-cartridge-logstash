@@ -1,0 +1,8 @@
+#!/bin/bash -e
+
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+
+add_domain_env_var "LOGSTASH_HOST=${OPENSHIFT_GEAR_DNS}"
+add_domain_env_var "LOGSTASH_TCP_PORT=${OPENSHIFT_LOGSTASH_TCP_PORT}"
+
+exit 0

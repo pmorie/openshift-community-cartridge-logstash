@@ -1,0 +1,34 @@
+Name: logstash
+Cartridge-Short-Name: LOGSTASH
+Display-Name: Logstash 1.1
+Description: "Manages log events, processing and storage"
+Version: '1.1'
+License: Apache
+Vendor: Red Hat
+Cartridge-Version: 0.0.1
+Cartridge-Vendor: logstash.net
+Categories:
+  - service
+  - web_framework
+Provides:
+  - logstash-1.1
+  - logstash  
+Scaling:
+  Min: 1
+  Max: 1
+Group-Overrides:
+  - components:
+    - logstash
+Endpoints:
+  - Private-IP-Name:   IP
+    Private-Port-Name: TCP_PORT
+    Private-Port:      8787
+
+  - Private-IP-Name:   IP
+    Private-Port-Name: WS_PORT
+    Private-Port:      3232
+    Public-Port-Name:  PUBLIC_WS_PORT
+    Mappings:
+      - Frontend:      ""
+        Backend:       ""
+        Options:       { websocket: true }
