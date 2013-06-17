@@ -4,9 +4,9 @@ Display-Name: Logstash 1.1
 Description: "Manages log events, processing and storage"
 Version: '1.1'
 License: Apache
-Vendor: Red Hat
+Vendor: logstash.net
 Cartridge-Version: 0.0.1
-Cartridge-Vendor: logstash.net
+Cartridge-Vendor: bleanhar
 Categories:
   - service
   - web_framework
@@ -23,6 +23,7 @@ Endpoints:
   - Private-IP-Name:   IP
     Private-Port-Name: TCP_PORT
     Private-Port:      8787
+    Public-Port-Name:  TCP_PROXY_PORT
 
   - Private-IP-Name:   IP
     Private-Port-Name: WS_PORT
