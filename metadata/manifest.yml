@@ -1,18 +1,16 @@
 Name: logstash
 Cartridge-Short-Name: LOGSTASH
-Display-Name: Logstash 1.1
-Description: "Manages log events, processing and storage"
-Version: '1.1'
+Display-Name: Logstash 1.2
+Description: "Embedded logstash cart"
+Version: '1.2'
 License: Apache
 Vendor: logstash.net
-Cartridge-Version: 0.0.1
+Cartridge-Version: 0.0.2
 Cartridge-Vendor: brenton
 Categories:
-  - service
-  - web_framework
-  - domain_scope
+  - embedded
 Provides:
-  - logstash-1.1
+  - logstash-1.2
   - logstash  
 Scaling:
   Min: 1
@@ -20,17 +18,3 @@ Scaling:
 Group-Overrides:
   - components:
     - logstash
-Endpoints:
-  - Private-IP-Name:   IP
-    Private-Port-Name: TCP_PORT
-    Private-Port:      8787
-    Public-Port-Name:  TCP_PROXY_PORT
-
-  - Private-IP-Name:   IP
-    Private-Port-Name: WS_PORT
-    Private-Port:      3232
-    Public-Port-Name:  PUBLIC_WS_PORT
-    Mappings:
-      - Frontend:      ""
-        Backend:       ""
-        Options:       { websocket: true }

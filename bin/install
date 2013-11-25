@@ -1,1 +1,10 @@
 #!/bin/bash -e
+
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+
+if [ -z "$ELASTICSEARCH_WEB_URL" ]
+then
+    client_error "A centralized logstash does not exist on this server"
+    client_error "You must create a new central logstash before installing this cartridge"
+    exit 151
+fi

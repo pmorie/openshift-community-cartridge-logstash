@@ -1,6 +1,6 @@
 input { 
-  tcp { host => "<%= ENV['OPENSHIFT_LOGSTASH_IP']%>" port => <%= ENV['OPENSHIFT_LOGSTASH_TCP_PORT']%> type => "tcp-type" }
+  unix { path => "<%= ENV['OPENSHIFT_LOGSTASH_SOCKET']%>" }
 }
 output { 
-  websocket { "<%= ENV['OPENSHIFT_LOGSTASH_IP']%>" }
+  tcp { host => "<%= ENV['ELASTICSEARCH_HOST']%>" port => "<%= ENV['ELASTICSEARCH_TCP_PORT']%>" }
 }

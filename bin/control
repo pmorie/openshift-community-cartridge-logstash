@@ -11,7 +11,7 @@ function start {
   if isrunning; then
       echo "Application is already running"
   else    
-        java -jar $OPENSHIFT_LOGSTASH_DIR/usr/logstash-1.1.*-flatjar.jar agent -f $OPENSHIFT_LOGSTASH_DIR/conf/logstash.conf 2>&1 > $OPENSHIFT_LOGSTASH_DIR/logs/logstash.out &
+        java -jar $OPENSHIFT_LOGSTASH_DIR/usr/logstash-1.2.*-flatjar.jar agent -f $OPENSHIFT_LOGSTASH_DIR/conf/logstash.conf 2>&1 > $OPENSHIFT_LOGSTASH_DIR/logs/logstash.out &
     	PROCESS_ID=$!
    	echo $PROCESS_ID > $LOGSTASH_PID_FILE
   fi
