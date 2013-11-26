@@ -9,7 +9,7 @@ Cartridge-Version: 0.0.2
 Cartridge-Vendor: brenton
 Categories:
   - embedded
-  - web-framework
+  - web_framework
 Provides:
   - logstash-1.2
   - logstash  
