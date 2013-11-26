@@ -1,0 +1,12 @@
+input {
+redis { host => "<%= ENV['REDIS_DB_HOST']%>"
+        port => "<%= ENV['REDIS_DB_PORT']%>"
+        password => "<%= ENV['REDIS_DB_PASSWORD']%>"
+        data_type => "list"
+        key => "logstash"
+        codec => "json" }
+}
+output {
+  file { path => "<%= ENV['OPENSHIFT_TMP_DIR']%>/%{+YYYY-MM-dd}.txt" }
+  websocket { host => "<%= ENV['OPENSHIFT_GEAR_DNS']%>" port => "<%= ENV['OPENSHIFT_LOGSTASH_WS_PORT']%>" }
+}
