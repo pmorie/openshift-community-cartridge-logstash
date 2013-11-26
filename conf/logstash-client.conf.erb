@@ -6,5 +6,6 @@ redis { host => "<%= ENV['OPENSHIFT_REDIS_HOST']%>"
         port => "<%= ENV['OPENSHIFT_REDIS_PORT']%>"
         password => "<%= ENV['OPENSHIFT_REDIS_PASSWORD']%>"
         data_type => "list"
-        key => "logstash" }
+        key => "logstash"
+        codec => "json" }
 }

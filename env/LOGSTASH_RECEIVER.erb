@@ -1,1 +1,5 @@
-0
+<% if ENV['OPENSHIFT_LOGSTASH_RECEIVER'].nil? %>
+    0
+<% else %>
+    <%= ENV['OPENSHIFT_LOGSTASH_RECIEVER'] %>
+<% end %>

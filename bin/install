@@ -1,2 +1,9 @@
 #!/bin/bash -e
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
+if [ -z "$OPENSHIFT_REDIS_HOST" ] || [ -z "$OPENSHIFT_REDIS_PORT" ] || [ -z "$OPENSHIFT_REDIS_PASSWORD" ]
+then
+    client_error "Need to set the variables to connect to Redis"
+    client_error "The variables: OPENSHIFT_REDIS_HOST, OPENSHIFT_REDIS_PORT, OPENSHIFT_REDIS_PASSWORD"
+    exit 151
+fi
