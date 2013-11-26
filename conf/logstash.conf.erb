@@ -1,6 +1,0 @@
-input { 
-  unix { path => "<%= ENV['OPENSHIFT_LOGSTASH_SOCKET']%>" }
-}
-output { 
-  tcp { host => "<%= ENV['ELASTICSEARCH_HOST']%>" port => "<%= ENV['ELASTICSEARCH_TCP_PORT']%>" }
-}

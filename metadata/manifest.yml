@@ -1,20 +1,37 @@
 Name: logstash
 Cartridge-Short-Name: LOGSTASH
 Display-Name: Logstash 1.2
-Description: "Embedded logstash cart"
+Description: "Logstash cart that can be used as an embedded client sender or a receiver"
 Version: '1.2'
 License: Apache
 Vendor: logstash.net
 Cartridge-Version: 0.0.2
-Cartridge-Vendor: brenton
+Cartridge-Vendor: brenton|julian
 Categories:
   - embedded
+  - web-framework
 Provides:
   - logstash-1.2
   - logstash  
+Subscribes:
+  set-redis-connection-info:
+    Type: "ENV:NET_TCP:db:redis:connection-info-v1"
+    Required: true
 Scaling:
   Min: 1
   Max: 1
-Group-Overrides:
-  - components:
-    - logstash
+Endpoints:
+- Private-IP-Name: REDIS_IP
+  Private-Port-Name: REDIS_PORT
+  Private-Port: 6379
+  Public-Port-Name: REDIS_PROXY_PORT
+- Private-IP-Name: WS_IP
+  Private-Port-Name: WS_PORT
+  Private-Port: 3232
+  Public-Port-Name: WS_PUBLIC_PORT
+  Protocols:
+  - ws
+  Mappings:
+  - Frontend: ''
+    Backend: ''
+    Options: { websocket = true }
