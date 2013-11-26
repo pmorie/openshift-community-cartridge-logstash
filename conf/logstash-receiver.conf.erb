@@ -1,7 +1,7 @@
 input {
-redis { host => "<%= ENV['REDIS_DB_HOST']%>"
-        port => "<%= ENV['REDIS_DB_PORT']%>"
-        password => "<%= ENV['REDIS_DB_PASSWORD']%>"
+redis { host => "<%= ENV['OPENSHIFT_REDIS_HOST']%>"
+        port => "<%= ENV['OPENSHIFT_REDIS_PORT']%>"
+        password => "<%= ENV['OPENSHIFT_REDIS_PASSWORD']%>"
         data_type => "list"
         key => "logstash"
         codec => "json" }

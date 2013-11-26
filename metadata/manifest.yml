@@ -6,17 +6,13 @@ Version: '1.2'
 License: Apache
 Vendor: logstash.net
 Cartridge-Version: 0.0.2
-Cartridge-Vendor: brenton|julian
+Cartridge-Vendor: brenton
 Categories:
   - embedded
   - web-framework
 Provides:
   - logstash-1.2
   - logstash  
-Subscribes:
-  set-redis-connection-info:
-    Type: "ENV:NET_TCP:db:redis:connection-info-v1"
-    Required: true
 Scaling:
   Min: 1
   Max: 1
