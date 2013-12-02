@@ -1,6 +1,6 @@
 input {
 unix { path => "<%= ENV['OPENSHIFT_LOGSTASH_SOCKET']%>"
-       type => "metrics"}
+       type => "metrics" }
 }
 output {
   redis { host => "<%= ENV['OPENSHIFT_REDIS_HOST']%>"
@@ -13,7 +13,8 @@ output {
 
 input {
 file { <% `env| grep LOG_DIR | cut -d "=" -f 2`.each do |path|%>
-       path => "<%= puts path.chomp + "/*" %>"
+          <%= puts "path => #{path.chomp}/*\n" %>
+       <% end %>
        type => "logs"
      }
 }
