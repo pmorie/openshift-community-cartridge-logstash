@@ -1,11 +1,26 @@
 input {
-  unix { path => "<%= ENV['OPENSHIFT_LOGSTASH_SOCKET']%>" }
+unix { path => "<%= ENV['OPENSHIFT_LOGSTASH_SOCKET']%>"
+       type => "metrics"}
 }
 output {
-redis { host => "<%= ENV['OPENSHIFT_REDIS_HOST']%>"
+  redis { host => "<%= ENV['OPENSHIFT_REDIS_HOST']%>"
         port => "<%= ENV['OPENSHIFT_REDIS_PORT']%>"
         password => "<%= ENV['OPENSHIFT_REDIS_PASSWORD']%>"
         data_type => "list"
-        key => "logstash"
+        key => "osemetrics"
         codec => "json" }
+}
+
+input {
+file { <% `env| grep LOG_DIR | cut -d "=" -f 2`.each do |path|%>
+       path => "<%= puts path.chomp + "/*" %>"
+       type => "logs"
+     }
+}
+output {
+  redis { host => "<%= ENV['OPENSHIFT_REDIS_HOST']%>"
+        port => "<%= ENV['OPENSHIFT_REDIS_PORT']%>"
+        password => "<%= ENV['OPENSHIFT_REDIS_PASSWORD']%>"
+        data_type => "list"
+        key => "oselogs"  }
 }
