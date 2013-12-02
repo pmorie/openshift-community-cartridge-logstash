@@ -10,10 +10,9 @@ output {
         key => "osemetrics"
         codec => "json" }
 }
-
 input {
 file { <% `env| grep LOG_DIR | cut -d "=" -f 2`.each do |path|%>
-          <%= "path => #{path.chomp}/*" %>
+          <%= "path => \"#{path.chomp}/*\"" %>
        <% end %>
        type => "logs"
      }
