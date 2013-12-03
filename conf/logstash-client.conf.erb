@@ -12,8 +12,7 @@ output {
 }
 input {
 file { <% `env| grep LOG_DIR | cut -d "=" -f 2`.each do |path|%>
-          <%= "path => \"#{path.chomp}/*\"" %>
-       <% end %>
+       <%= "path => \"#{path.chomp}/*\"" %><% end %>
        type => "logs"
      }
 }
